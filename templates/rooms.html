@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block title %}Rooms & Suites - Royal Palace Hotel & Resort{% endblock %}
+
+{% block hero %}
+<section class="hero-section rooms-hero" style="min-height:500px;">
+    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=80" alt="Luxury Rooms" class="hero-video" style="object-fit:cover;">
+    <div class="hero-overlay"></div>
+    <div class="hero-content container text-center text-white" data-aos="fade-up">
+        <h1>Rooms & Suites</h1>
+        <p class="lead">Discover Your Perfect Retreat</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<section class="section section-dark py-5">
+    <div class="container">
+        <div class="filters-bar d-flex flex-column flex-md-row align-items-center justify-content-center gap-3 mb-5" data-aos="fade-up">
+            <div class="filter-item">
+                <label>Price Range</label>
+                <select id="priceFilter" class="form-select">
+                    <option value="all">All Prices</option>
+                    <option value="premium">$450+ / night</option>
+                    <option value="luxury">$300 - $450</option>
+                    <option value="classic">$150 - $300</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <label>Room Type</label>
+                <select id="typeFilter" class="form-select">
+                    <option value="all">All Types</option>
+                    <option value="Deluxe Room">Deluxe Room</option>
+                    <option value="Executive Room">Executive Room</option>
+                    <option value="Family Suite">Family Suite</option>
+                    <option value="Ocean View Room">Ocean View Room</option>
+                    <option value="Presidential Suite">Presidential Suite</option>
+                    <option value="Royal Penthouse">Royal Penthouse</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <label>Guests</label>
+                <select id="guestFilter" class="form-select">
+                    <option value="all">Any</option>
+                    <option value="2">2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                    <option value="6">6 Guests</option>
+                </select>
+            </div>
+        </div>
+        <div id="roomCards" class="row gy-4">
+            <div class="col-lg-4" data-room-type="Deluxe Room" data-price="classic" data-guests="2" data-aos="fade-up">
+                <article class="room-card glass-card overflow-hidden">
+                    <img src="https://i.pinimg.com/1200x/2f/7b/97/2f7b97c0a076fcbad08903ae46d348a7.jpg" alt="Deluxe Room">
+                    <div class="room-body p-4">
+                        <span class="room-tag">Deluxe Room</span>
+                        <h5>Deluxe Room</h5>
+                        <p>An elegantly furnished space with luxurious details, ideal for business and leisure travelers.</p>
+                        <ul class="room-meta list-unstyled">
+                            <li><strong>Price:</strong> $220 / night</li>
+                            <li><strong>Size:</strong> 42 m²</li>
+                            <li><strong>Bed:</strong> King Bed</li>
+                            <li><strong>Max Occupancy:</strong> 2</li>
+                        </ul>
+                        <div class="room-amenities">Wi-Fi, Minibar, City View, Premium Toiletries</div>
+                        <a href="/booking" class="btn btn-outline-light mt-3">Book Now</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-lg-4" data-room-type="Executive Room" data-price="luxury" data-guests="3" data-aos="fade-up" data-aos-delay="100">
+                <article class="room-card glass-card overflow-hidden">
+                    <img src="https://i.pinimg.com/1200x/3b/c0/ea/3bc0eaf938d8dacc5ac7609c859243fa.jpg" alt="Executive Room">
+                    <div class="room-body p-4">
+                        <span class="room-tag">Executive Room</span>
+                        <h5>Executive Room</h5>
+                        <p>Refined spaces designed for premium comfort with refined furnishings and exclusive services.</p>
+                        <ul class="room-meta list-unstyled">
+                            <li><strong>Price:</strong> $320 / night</li>
+                            <li><strong>Size:</strong> 50 m²</li>
+                            <li><strong>Bed:</strong> King Bed</li>
+                            <li><strong>Max Occupancy:</strong> 3</li>
+                        </ul>
+                        <div class="room-amenities">Lounge Access, Workspace, Deluxe Bathroom, City Skyline View</div>
+                        <a href="/booking" class="btn btn-outline-light mt-3">Book Now</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-lg-4" data-room-type="Family Suite" data-price="premium" data-guests="4" data-aos="fade-up" data-aos-delay="200">
+                <article class="room-card glass-card overflow-hidden">
+                    <img src="https://i.pinimg.com/736x/77/f5/db/77f5dba29ca5420db96fb3ac2038519f.jpg" alt="Family Suite">
+                    <div class="room-body p-4">
+                        <span class="room-tag">Family Suite</span>
+                        <h5>Family Suite</h5>
+                        <p>Spacious suites with separate living areas crafted for family comfort and luxury.</p>
+                        <ul class="room-meta list-unstyled">
+                            <li><strong>Price:</strong> $420 / night</li>
+                            <li><strong>Size:</strong> 88 m²</li>
+                            <li><strong>Bed:</strong> Queen + Sofa Bed</li>
+                            <li><strong>Max Occupancy:</strong> 4</li>
+                        </ul>
+                        <div class="room-amenities">Private Lounge, Children Amenities, Premium Entertainment</div>
+                        <a href="/booking" class="btn btn-outline-light mt-3">Book Now</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-lg-4" data-room-type="Ocean View Room" data-price="luxury" data-guests="2" data-aos="fade-up" data-aos-delay="300">
+                <article class="room-card glass-card overflow-hidden">
+                    <img src="https://i.pinimg.com/1200x/4d/3d/34/4d3d34c40f8599e0ecf0b1599f71a93c.jpg" alt="Ocean View Room">
+                    <div class="room-body p-4">
+                        <span class="room-tag">Ocean View Room</span>
+                        <h5>Ocean View Room</h5>
+                        <p>Wake up to panoramic ocean views and refined interiors tailored for serenity.</p>
+                        <ul class="room-meta list-unstyled">
+                            <li><strong>Price:</strong> $360 / night</li>
+                            <li><strong>Size:</strong> 55 m²</li>
+                            <li><strong>Bed:</strong> King Bed</li>
+                            <li><strong>Max Occupancy:</strong> 2</li>
+                        </ul>
+                        <div class="room-amenities">Ocean Balcony, Private Minibar, Luxury Bath</div>
+                        <a href="/booking" class="btn btn-outline-light mt-3">Book Now</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-lg-4" data-room-type="Presidential Suite" data-price="premium" data-guests="4" data-aos="fade-up" data-aos-delay="400">
+                <article class="room-card glass-card overflow-hidden">
+                    <img src="https://i.pinimg.com/1200x/23/23/68/23236855ad2f63cb4a15f689909ff1d0.jpg" alt="Presidential Suite">
+                    <div class="room-body p-4">
+                        <span class="room-tag">Presidential Suite</span>
+                        <h5>Presidential Suite</h5>
+                        <p>Elite accommodations featuring grand living areas, private dining, and deluxe amenities.</p>
+                        <ul class="room-meta list-unstyled">
+                            <li><strong>Price:</strong> $750 / night</li>
+                            <li><strong>Size:</strong> 140 m²</li>
+                            <li><strong>Bed:</strong> King Bed</li>
+                            <li><strong>Max Occupancy:</strong> 4</li>
+                        </ul>
+                        <div class="room-amenities">Private Terrace, Butler Service, In-Suite Bar</div>
+                        <a href="/booking" class="btn btn-outline-light mt-3">Book Now</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-lg-4" data-room-type="Royal Penthouse" data-price="premium" data-guests="6" data-aos="fade-up" data-aos-delay="500">
+                <article class="room-card glass-card overflow-hidden">
+                    <img src="https://i.pinimg.com/1200x/f6/f4/0e/f6f40ee2f4335d9e95b81a3ff55704ef.jpg" alt="Royal Penthouse">
+                    <div class="room-body p-4">
+                        <span class="room-tag">Royal Penthouse</span>
+                        <h5>Royal Penthouse</h5>
+                        <p>Ultimate luxury residence featuring sweeping city views, private lounge, and exceptional exclusivity.</p>
+                        <ul class="room-meta list-unstyled">
+                            <li><strong>Price:</strong> $1,200 / night</li>
+                            <li><strong>Size:</strong> 220 m²</li>
+                            <li><strong>Bed:</strong> King + Sofa Beds</li>
+                            <li><strong>Max Occupancy:</strong> 6</li>
+                        </ul>
+                        <div class="room-amenities">Private Elevator, Panoramic Terrace, Exclusive Service</div>
+                        <a href="/booking" class="btn btn-outline-light mt-3">Book Now</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const priceFilter = document.getElementById('priceFilter');
+        const typeFilter = document.getElementById('typeFilter');
+        const guestFilter = document.getElementById('guestFilter');
+        const roomCards = document.querySelectorAll('#roomCards .col-lg-4');
+
+        function filterRooms() {
+            const priceValue = priceFilter.value;
+            const typeValue = typeFilter.value;
+            const guestValue = guestFilter.value;
+
+            roomCards.forEach(card => {
+                const matchesPrice = priceValue === 'all' || card.dataset.price === priceValue;
+                const matchesType = typeValue === 'all' || card.dataset.roomType === typeValue;
+                const matchesGuests = guestValue === 'all' || card.dataset.guests === guestValue;
+                card.style.display = matchesPrice && matchesType && matchesGuests ? 'block' : 'none';
+            });
+        }
+
+        [priceFilter, typeFilter, guestFilter].forEach(select => select.addEventListener('change', filterRooms));
+    });
+</script>
+{% endblock %}

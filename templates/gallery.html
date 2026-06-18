@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block title %}Gallery - Royal Palace Hotel & Resort{% endblock %}
+
+{% block hero %}
+<section class="hero-section" style="min-height:500px;">
+    <img src="https://images.unsplash.com/photo-1571896349842-b08556e50305?auto=format&fit=crop&w=1200&q=80" alt="Gallery" class="hero-video" style="object-fit:cover;">
+    <div class="hero-overlay"></div>
+    <div class="hero-content container text-center text-white" data-aos="fade-up">
+        <h1>Gallery</h1>
+        <p class="lead">Memorable Moments in Every Frame</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<section class="section section-dark py-5">
+    <div class="container">
+        <div class="gallery-filters d-flex flex-wrap justify-content-center gap-3 mb-5" data-aos="fade-up">
+            <button class="gallery-filter active" data-filter="all">All</button>
+            <button class="gallery-filter" data-filter="Exterior">Hotel Exterior</button>
+            <button class="gallery-filter" data-filter="Rooms">Luxury Rooms</button>
+            <button class="gallery-filter" data-filter="Dining">Restaurants</button>
+            <button class="gallery-filter" data-filter="Pool">Pool Area</button>
+            <button class="gallery-filter" data-filter="Spa">Spa</button>
+            <button class="gallery-filter" data-filter="Events">Events & Weddings</button>
+        </div>
+        <div class="gallery-grid row g-3">
+            <div class="col-sm-6 col-lg-4" data-category="Exterior" data-aos="fade-up">
+                <div class="gallery-item glass-card overflow-hidden">
+                    <img src="https://i.pinimg.com/1200x/30/b5/1b/30b51b7c829fcd6f986d8b8ab53ce55c.jpg" alt="Hotel Exterior">
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4" data-category="Exterior" data-aos="fade-up" data-aos-delay="100">
+                <div class="gallery-item glass-card overflow-hidden">
+                    <img src="https://i.pinimg.com/1200x/56/16/e2/5616e21cc114e7d912957c0729f5f9cc.jpg" alt="Hotel Facade">
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4" data-category="Rooms" data-aos="fade-up" data-aos-delay="200">
+                <div class="gallery-item glass-card overflow-hidden">
+                    <img src="https://i.pinimg.com/1200x/f6/f4/0e/f6f40ee2f4335d9e95b81a3ff55704ef.jpg" alt="Luxury Room">
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4" data-category="Rooms" data-aos="fade-up" data-aos-delay="300">
+                <div class="gallery-item glass-card overflow-hidden">
+                    <img src="https://i.pinimg.com/736x/9c/81/24/9c8124f103b4a1aca7618d387d023db3.jpg" alt="hotel lobby">
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4" data-category="Rooms" data-aos="fade-up" data-aos-delay="400">
+                <div class="gallery-item glass-card overflow-hidden">
+                    <img src="https://i.pinimg.com/1200x/3b/c0/ea/3bc0eaf938d8dacc5ac7609c859243fa.jpg" alt="Executive Room">
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4" data-category="Dining" data-aos="fade-up" data-aos-delay="500">
+                <div class="gallery-item glass-card overflow-hidden">
+                    <img src="https://i.pinimg.com/736x/ce/3c/fb/ce3cfb6b672a3fe525f11345566f482d.jpg" alt="Fine Dining">
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4" data-category="Dining" data-aos="fade-up" data-aos-delay="600">
+                <div class="gallery-item glass-card overflow-hidden">
+                    <img src="https://i.pinimg.com/1200x/a3/a0/74/a3a074c8304c19bfe9cd5dea901817f0.jpg" alt="Restaurant">
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4" data-category="Dining" data-aos="fade-up" data-aos-delay="700">
+                <div class="gallery-item glass-card overflow-hidden">
+                    <img src="https://i.pinimg.com/1200x/de/67/30/de6730dd224e119dbe570fd5ae47d249.jpg" alt="Culinary Experience">
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4" data-category="Pool" data-aos="fade-up" data-aos-delay="800">
+                <div class="gallery-item glass-card overflow-hidden">
+                    <img src="https://i.pinimg.com/1200x/cf/dc/91/cfdc912c4398ea5d199a40e5d783b9bd.jpg" alt="Pool Area">
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4" data-category="Pool" data-aos="fade-up" data-aos-delay="900">
+                <div class="gallery-item glass-card overflow-hidden">
+                    <img src="https://i.pinimg.com/1200x/76/ec/85/76ec85defc9095b5194af839c85455b7.jpg" alt="Swimming Pool">
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4" data-category="Spa" data-aos="fade-up" data-aos-delay="1000">
+                <div class="gallery-item glass-card overflow-hidden">
+                    <img src="https://i.pinimg.com/1200x/46/03/20/4603205e0ac3f0653301bc8eef452b79.jpg" alt="Expeience">
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4" data-category="Spa" data-aos="fade-up" data-aos-delay="1100">
+                <div class="gallery-item glass-card overflow-hidden">
+                    <img src="https://i.pinimg.com/736x/bc/6e/17/bc6e173e8a4aa131338c66aacd4f3632.jpg" alt="Wellness Center">
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4" data-category="Events" data-aos="fade-up" data-aos-delay="1200">
+                <div class="gallery-item glass-card overflow-hidden">
+                    <img src="https://i.pinimg.com/1200x/0c/30/d1/0c30d14917100763f9d3ae721a87f00a.jpg" alt="Event Space">
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4" data-category="Events" data-aos="fade-up" data-aos-delay="1300">
+                <div class="gallery-item glass-card overflow-hidden">
+                    <img src="https://i.pinimg.com/736x/1f/59/a1/1f59a14dc646feca68fcb89a4e7d368f.jpg" alt="Wedding Venue">
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4" data-category="Events" data-aos="fade-up" data-aos-delay="1400">
+                <div class="gallery-item glass-card overflow-hidden">
+                    <img src="https://i.pinimg.com/736x/87/8f/56/878f56b91d6c92c37163132f44aa4987.jpg" alt="Conference">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section py-5">
+    <div class="container">
+        <div class="social-feed p-5 glass-card" data-aos="fade-up">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h3>Follow Our Social Journey</h3>
+                    <p>Real-time lifestyle updates, elegant moments, and exclusive hotel experiences shared daily.</p>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <div class="social-icons d-flex justify-content-center gap-3 flex-wrap">
+                        <a href="https://instagram.com" target="_blank" rel="noopener" class="social-link" title="Instagram">📸 Instagram</a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener" class="social-link" title="Facebook">f Facebook</a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener" class="social-link" title="X">𝕏 X</a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener" class="social-link" title="YouTube">▶️ YouTube</a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-link" title="LinkedIn">in LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const galleryFilters = document.querySelectorAll('.gallery-filter');
+        const galleryItems = document.querySelectorAll('.gallery-grid [data-category]');
+        
+        galleryFilters.forEach(button => {
+            button.addEventListener('click', function () {
+                document.querySelector('.gallery-filter.active').classList.remove('active');
+                button.classList.add('active');
+                const filter = button.dataset.filter;
+                galleryItems.forEach(item => {
+                    item.style.display = filter === 'all' || item.dataset.category === filter ? 'block' : 'none';
+                });
+            });
+        });
+
+        galleryItems.forEach(item => {
+            item.querySelector('img').addEventListener('click', function (e) {
+                const src = this.src;
+                const overlay = document.createElement('div');
+                overlay.className = 'lightbox-overlay';
+                overlay.innerHTML = `<div class="lightbox-content"><img src="${src}" alt="Gallery preview" style="max-width:90%;max-height:90%;border-radius:1rem;"><button class="lightbox-close" aria-label="Close">×</button></div>`;
+                document.body.appendChild(overlay);
+                overlay.querySelector('.lightbox-close').addEventListener('click', () => {
+                    document.body.removeChild(overlay);
+                });
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) document.body.removeChild(overlay);
+                });
+            });
+        });
+    });
+</script>
+{% endblock %}

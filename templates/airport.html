@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block title %}Airport Services - Royal Palace Hotel & Resort{% endblock %}
+
+{% block hero %}
+<section class="hero-section" style="min-height:500px;">
+    <img src="https://i.pinimg.com/1200x/a9/50/52/a95052361969f94398e99c0663d31708.jpg" alt="Airport Services" class="hero-video" style="object-fit:cover;">
+    <div class="hero-overlay"></div>
+    <div class="hero-content container text-center text-white" data-aos="fade-up">
+        <h1>Airport Pickup & Premium Services</h1>
+        <p class="lead">Seamless Arrivals and Luxury Transport</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<section class="section section-dark py-5">
+    <div class="container">
+        <div class="row gy-4 align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="transport-card glass-card p-5">
+                    <span class="eyebrow text-gold">Premium Services</span>
+                    <h2>Your Journey Begins Here</h2>
+                    <p class="mt-4">We offer comprehensive transport and concierge services to enhance your luxury experience from the moment you arrive.</p>
+                    <ul class="list-unstyled transport-list mt-4">
+                        <li class="mb-3">✈️ <strong>Airport Pickup & Drop</strong><br>Dedicated chauffeur service at competitive rates</li>
+                        <li class="mb-3">🚗 <strong>Luxury Car Rental</strong><br>Premium vehicles for self-drive exploration</li>
+                        <li class="mb-3">🚘 <strong>Chauffeur Service</strong><br>Expert drivers for city exploration</li>
+                        <li class="mb-3">🗺️ <strong>City Tours</strong><br>Curated sightseeing with local expertise</li>
+                        <li class="mb-3">🎉 <strong>Event Planning</strong><br>Complete event coordination services</li>
+                        <li class="mb-3">💒 <strong>Wedding Arrangements</strong><br>Dream destination weddings facilitated</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <form id="airportForm" class="glass-card p-5 booking-form">
+                    <h4 class="mb-4" style="color:#d4af37;">Request Airport Pickup</h4>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Flight Number *</label>
+                            <input type="text" id="flightNumber" class="form-control" placeholder="e.g., BA123" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Arrival Date *</label>
+                            <input type="date" id="arrivalDate" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Arrival Time *</label>
+                            <input type="time" id="arrivalTime" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Number of Passengers *</label>
+                            <input type="number" id="passengers" class="form-control" min="1" value="1" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Pickup Location *</label>
+                            <input type="text" id="pickupLocation" class="form-control" placeholder="Airport terminal or address" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Vehicle Selection *</label>
+                            <div class="vehicle-options">
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" id="sedan" name="vehicle" value="Sedan" required>
+                                    <label class="form-check-label" for="sedan">
+                                        🚗 <strong>Sedan</strong> - Comfortable and elegant for 1-3 passengers
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" id="suv" name="vehicle" value="SUV" required>
+                                    <label class="form-check-label" for="suv">
+                                        🚙 <strong>SUV</strong> - Spacious and luxurious for up to 6 passengers
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" id="limousine" name="vehicle" value="Limousine" required>
+                                    <label class="form-check-label" for="limousine">
+                                        🚘 <strong>Limousine</strong> - Ultimate luxury experience with premium amenities
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Special Requirements</label>
+                            <textarea class="form-control" rows="2" placeholder="Child seat, wheelchair access, etc..."></textarea>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button type="submit" class="btn btn-gold btn-lg">Request Pickup</button>
+                            <div id="airportMessage" class="mt-3 text-center"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section py-5">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <span class="eyebrow text-gold">Concierge Services</span>
+            <h2>Elevate Your Experience</h2>
+        </div>
+        <div class="row gy-4 mt-5">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="glass-card p-4">
+                    <img src="https://i.pinimg.com/1200x/33/df/59/33df591a4334aeee0d3f2e8d8aa31060.jpg" alt="City Tours" style="width:100%;height:150px;object-fit:cover;border-radius:1rem;margin-bottom:1rem;">
+                    <h5>City Tours & Sightseeing</h5>
+                    <p>Expert-guided tours to local landmarks, cultural sites, and hidden gems.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass-card p-4">
+                    <img src="https://i.pinimg.com/736x/42/a3/c2/42a3c2c8382320b075abe60720f45437.jpg" alt="Events" style="width:100%;height:150px;object-fit:cover;border-radius:1rem;margin-bottom:1rem;">
+                    <h5>Event Planning & Coordination</h5>
+                    <p>Comprehensive planning for conferences, celebrations, and special occasions.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="glass-card p-4">
+                    <img src="https://i.pinimg.com/736x/40/59/11/405911215aa4ab5f3b2201f7cb0b28c4.jpg" alt="Weddings" style="width:100%;height:150px;object-fit:cover;border-radius:1rem;margin-bottom:1rem;">
+                    <h5>Wedding Arrangements</h5>
+                    <p>Elegant destination weddings with complete planning and coordination.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const airportForm = document.getElementById('airportForm');
+        if (airportForm) {
+            airportForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                const selectedVehicle = document.querySelector('input[name="vehicle"]:checked');
+                const payload = {
+                    flightNumber: document.getElementById('flightNumber').value,
+                    arrivalDate: document.getElementById('arrivalDate').value,
+                    arrivalTime: document.getElementById('arrivalTime').value,
+                    passengers: document.getElementById('passengers').value,
+                    pickupLocation: document.getElementById('pickupLocation').value,
+                    vehicle: selectedVehicle ? selectedVehicle.value : ''
+                };
+                const airportMessage = document.getElementById('airportMessage');
+                fetch('/api/airport', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(payload)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        airportMessage.textContent = data.message;
+                        airportMessage.style.color = data.success ? '#d4af37' : '#f05353';
+                    })
+                    .catch(() => {
+                        airportMessage.textContent = 'Unable to submit airport request at this time.';
+                        airportMessage.style.color = '#f05353';
+                    });
+            });
+        }
+    });
+</script>
+{% endblock %}
