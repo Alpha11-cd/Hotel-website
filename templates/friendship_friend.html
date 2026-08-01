@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ friend.name }} | Friendship Day{% endblock %}
+
+{% block hero %}
+<section class="friendship-hero friend-page-hero">
+    <div class="friendship-overlay"></div>
+    <div class="container py-5 position-relative z-2">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center" data-aos="fade-up">
+                <div class="friend-ornament">🌷🌼✨</div>
+                <h1 class="display-3 fw-semibold">{{ friend.name }}</h1>
+                <p class="lead mt-3">A little note made just for you with love.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<section class="section friendship-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="glass-card p-4 p-md-5 friend-message-card" data-aos="zoom-in">
+                    <p class="friend-message">{{ friend.message }}</p>
+                    <div class="friend-signoff">🌸 Happy Friendship Day, {{ friend.name }}! 🌸</div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5 g-4">
+            {% for other in friends %}
+            <div class="col-sm-6 col-md-4" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 70 }}">
+                <a class="friend-mini-card" href="{{ url_for('friend_page', friend_name=other.slug) }}">
+                    <span>{{ other.name }}</span>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

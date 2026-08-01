@@ -8,7 +8,69 @@ body{
     background:#060507;
     scroll-behavior:smooth;
 }
-img{max-width:100%;display:block;}
+
+.text-pink{color:#ff7faf!important;}
+.text-white-50{color:rgba(255,255,255,.7)!important;}
+
+.friendship-hero{
+    position:relative;
+    min-height:100vh;
+    overflow:hidden;
+    background:linear-gradient(135deg,#4d1d63 0%,#b35bf8 40%,#ff79b2 100%);
+}
+.friendship-hero::before,
+.friendship-hero::after{
+    content:'';
+    position:absolute;
+    inset:auto;
+    border-radius:50%;
+    filter:blur(70px);
+    opacity:.45;
+    animation: floatGlow 8s ease-in-out infinite;
+}
+.friendship-hero::before{width:260px;height:260px;background:#ffe8a8;top:-40px;left:-40px;}
+.friendship-hero::after{width:280px;height:280px;background:#ff7faf;bottom:-60px;right:-40px;animation-delay:-4s;}
+.friendship-overlay{position:absolute;inset:0;background:radial-gradient(circle at top left, rgba(255,255,255,.25), transparent 35%), rgba(0,0,0,.2);}
+.friendship-particles{position:absolute;inset:0;background-image:radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 1px), radial-gradient(circle, rgba(255,255,255,.7) 1px, transparent 1px);background-size:28px 28px, 42px 42px;background-position:0 0, 20px 20px;opacity:.25;animation: drift 14s linear infinite;}
+.friendship-hero .container{position:relative;z-index:2;}
+.friendship-hero h1{font-family:'Great Vibes', 'Pacifico', serif;font-size:clamp(2.8rem,6vw,4.8rem);line-height:1.1;letter-spacing:.02em;}
+.friendship-hero .lead{font-size:1.16rem;max-width:700px;color:#fff6f8;}
+.btn-love{background:linear-gradient(135deg,#ff8cbf,#ff5d80);color:#fff;border:none;box-shadow:0 15px 40px rgba(255,93,128,.25);} 
+.btn-love:hover{color:#fff;transform:translateY(-2px);}
+.friendship-search .form-control{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.24);color:#fff;backdrop-filter:blur(12px);} 
+.friendship-search .form-control::placeholder{color:rgba(255,255,255,.68);} 
+.friendship-section{background:linear-gradient(180deg,#14061f 0%,#09020f 100%);} 
+.glass-card{background:rgba(255,255,255,.1);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.18);box-shadow:0 25px 60px rgba(0,0,0,.2);} 
+.friend-card{position:relative;padding:2rem 1.5rem;border-radius:1.6rem;overflow:hidden;min-height:250px;transition:transform .35s ease, box-shadow .35s ease;animation: floatCard 4.8s ease-in-out infinite;}
+.friend-card:hover{transform:translateY(-12px) scale(1.01);box-shadow:0 30px 80px rgba(255,125,171,.25);} 
+.friend-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.22),transparent 60%);pointer-events:none;}
+.friend-avatar{width:82px;height:82px;border-radius:50%;display:grid;place-items:center;font-size:2.2rem;font-weight:700;background:linear-gradient(135deg,#ffd7eb,#ff8cbf);color:#5e1739;margin-bottom:1rem;box-shadow:0 12px 30px rgba(255,140,191,.3);} 
+.friend-badge{position:absolute;top:1rem;right:1rem;font-size:1.5rem;animation: sway 3s ease-in-out infinite;} 
+.friend-card h3{font-family:'Playfair Display',serif;color:#fff;font-size:1.45rem;margin-bottom:.6rem;} 
+.friend-card p{color:rgba(255,255,255,.8);margin:0;font-size:.96rem;}
+.gift-hint{text-align:center;padding:2rem;border-radius:1.8rem;background:rgba(255,255,255,.08);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.16);} 
+.secret-flower{font-size:3rem;border:none;background:none;cursor:pointer;animation: pulse 2s ease-in-out infinite;transition:transform .25s ease;} 
+.secret-flower:hover{transform:scale(1.1);} 
+.friend-page-hero{min-height:70vh;} 
+.friend-ornament{font-size:2rem;margin-bottom:1rem;animation: sway 3s ease-in-out infinite;} 
+.friend-message-card{border-radius:2rem;} 
+.friend-message{font-family:'Great Vibes', 'Pacifico', serif;font-size:clamp(1.6rem,3vw,2.35rem);line-height:1.75;color:#fff8fc;text-align:center;} 
+.friend-signoff{margin-top:2rem;text-align:center;font-weight:600;color:#ffdce9;font-size:1.1rem;} 
+.friend-mini-card{display:block;padding:1rem 1.2rem;border-radius:1rem;background:rgba(255,255,255,.08);color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.12);text-align:center;transition:transform .25s ease, background .25s ease;} 
+.friend-mini-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.14);color:#fff;text-decoration:none;} 
+.surprise-burst{position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle, rgba(255,255,255,.9) 0%, rgba(255,255,255,0) 65%);animation: burst 2.5s ease-out forwards;z-index:9999;} 
+.surprise-card{position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);background:rgba(255,255,255,.95);color:#6d1452;padding:1.5rem 2rem;border-radius:1.2rem;box-shadow:0 25px 60px rgba(0,0,0,.25);z-index:10000;animation: popIn 1.8s ease-out forwards;} 
+.surprise-card h4{margin:0 0 .5rem;font-family:'Playfair Display',serif;} 
+.cursor-sparkle{position:fixed;pointer-events:none;width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.95);box-shadow:0 0 12px rgba(255,255,255,.8);animation: sparkleFade .7s ease-out forwards;z-index:99999;} 
+@keyframes floatGlow{0%,100%{transform:translate3d(0,0,0) scale(1);}50%{transform:translate3d(20px,-30px,0) scale(1.06);}} 
+@keyframes drift{from{transform:translateY(0);}to{transform:translateY(24px);}} 
+@keyframes floatCard{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}} 
+@keyframes sway{0%,100%{transform:rotate(0deg);}50%{transform:rotate(8deg);}} 
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}} 
+@keyframes burst{0%{opacity:1;}100%{opacity:0;transform:scale(3);}} 
+@keyframes popIn{0%{opacity:0;transform:translate(-50%, -45%) scale(.9);}70%{opacity:1;transform:translate(-50%, -50%) scale(1);}100%{opacity:0;transform:translate(-50%, -50%) scale(1.02);}} 
+@keyframes sparkleFade{0%{opacity:1;transform:translate(-50%, -50%) scale(1);}100%{opacity:0;transform:translate(-50%, -50%) scale(2.5);}} 
+@media (max-width:768px){.friendship-hero{min-height:auto;}.friend-card{min-height:220px;}.friend-message{font-size:1.5rem;}}img{max-width:100%;display:block;}
 button,select,input,textarea{font:inherit;}
 .main-header .navbar{background:rgba(3,2,6,.75);}
 .brand-mark{width:40px;height:40px;border:2px solid #d4af37;border-radius:50%;margin-right:14px;position:relative;}

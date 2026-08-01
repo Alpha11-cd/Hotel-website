@@ -1,15 +1,76 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for
 from datetime import datetime
 import os
 import json
+import re
 import smtplib
 import ssl
 from email.message import EmailMessage
 
 app = Flask(__name__)
 
+FRIENDS = [
+    "Aditi",
+    "Khushi",
+    "Sneha",
+    "Priya",
+    "Riya"
+]
+
+
+def slugify(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
+
+
+def generate_friend_message(name: str) -> str:
+    letters = [char for char in name.lower() if char.isalpha()]
+    seed = sum(ord(char) for char in letters) if letters else len(name)
+    adjectives = ["radiant", "gentle", "joyful", "sparkling", "graceful", "warm", "lovely", "brilliant"]
+    themes = ["smiles", "kindness", "hope", "light", "harmony", "love", "comfort", "joy"]
+    closings = [
+        "Wishing you endless smiles, success, and happiness.",
+        "Sending you a heart full of love and gratitude.",
+        "May your days stay bright, beautiful, and blessed.",
+        "May your world always feel as lovely as your spirit."
+    ]
+    adjective = adjectives[seed % len(adjectives)]
+    theme = themes[(seed // 3) % len(themes)]
+    closing = closings[(seed // 5) % len(closings)]
+    return (
+        f"Some friendships quietly become the softest and most beautiful part of life. {name} carries a {adjective} kind of warmth, "
+        f"a calm glow, and a lovely sense of {theme} that makes every moment feel brighter. Thank you for being such a caring, "
+        f"thoughtful, and uplifting friend. {closing} Happy Friendship Day!"
+    )
+
+
+def build_friend_catalog():
+    catalog = []
+    for name in FRIENDS:
+        catalog.append({
+            "name": name,
+            "slug": slugify(name),
+            "message": generate_friend_message(name)
+        })
+    return catalog
+
+
 @app.route('/')
 def home():
+    friends = build_friend_catalog()
+    return render_template('friendship_home.html', friends=friends)
+
+
+@app.route('/friend/<friend_name>')
+def friend_page(friend_name):
+    friends = build_friend_catalog()
+    friend = next((item for item in friends if item['slug'] == slugify(friend_name)), None)
+    if not friend:
+        return redirect(url_for('home'))
+    return render_template('friendship_friend.html', friend=friend, friends=friends)
+
+
+@app.route('/hotel-home')
+def hotel_home():
     return render_template('index.html')
 
 @app.route('/about')

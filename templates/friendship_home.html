@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block title %}Friendship Day Surprise{% endblock %}
+
+{% block hero %}
+<section class="friendship-hero">
+    <div class="friendship-overlay"></div>
+    <div class="friendship-particles"></div>
+    <div class="container py-5 position-relative z-2">
+        <div class="row align-items-center min-vh-100 py-5">
+            <div class="col-lg-8" data-aos="fade-up">
+                <div class="eyebrow">A dreamy digital surprise</div>
+                <h1>Happy Friendship Day <span class="text-pink">❤️</span></h1>
+                <p class="lead">U came when i needed you THANKYOU❤️❤️❤️</p>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <a class="btn btn-love btn-lg" href="#friends">Meet My Amazing Friends</a>
+                    <button class="btn btn-outline-light btn-lg" type="button" onclick="playMusic()">Play Music</button>
+                </div>
+                <div class="friendship-search mt-4">
+                    <label class="form-label text-white-50" for="friendSearch">Search your name</label>
+                    <input class="form-control form-control-lg" id="friendSearch" type="text" list="friendSuggestions" placeholder="Type a friend’s name" />
+                    <datalist id="friendSuggestions">
+                        {% for friend in friends %}
+                        <option value="{{ friend.name }}"></option>
+                        {% endfor %}
+                    </datalist>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<section id="friends" class="section friendship-section">
+    <div class="container">
+        <div class="section-header text-center mb-5" data-aos="fade-up">
+            <div class="eyebrow">My precious circle</div>
+            <h2>Meet the lovely souls</h2>
+            <p class="text-white-50 mt-3">Every friend gets a magical card and a personalized page filled with love.</p>
+        </div>
+        <div class="row g-4">
+            {% for friend in friends %}
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 80 }}">
+                <a class="friend-card glass-card text-decoration-none d-block" href="{{ url_for('friend_page', friend_name=friend.slug) }}">
+                    <div class="friend-avatar">{{ friend.name[0] }}</div>
+                    <div class="friend-badge">🌸</div>
+                    <h3>{{ friend.name }}</h3>
+                    <p>Tap to see a heartfelt message crafted just for you.</p>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section py-5">
+    <div class="container">
+        <div class="gift-hint" data-aos="zoom-in">
+            <button class="secret-flower" type="button" onclick="triggerSurprise()" aria-label="Surprise flower">🌸</button>
+            <p>Find the hidden flower and uncover a secret surprise.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const friendNames = {{ friends | map(attribute='name') | list | tojson }};
+    const searchInput = document.getElementById('friendSearch');
+    if (searchInput) {
+        searchInput.addEventListener('input', function () {
+            const value = this.value.trim().toLowerCase();
+            const match = friendNames.find(name => name.toLowerCase() === value);
+            if (match) {
+                window.location.href = '/friend/' + match.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+            }
+        });
+    }
+
+    function playMusic() {
+        const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
+        audio.volume = 0.25;
+        audio.play().catch(() => {});
+    }
+
+    function triggerSurprise() {
+        const burst = document.createElement('div');
+        burst.className = 'surprise-burst';
+        document.body.appendChild(burst);
+        setTimeout(() => burst.remove(), 2600);
+        const message = document.createElement('div');
+        message.className = 'surprise-card';
+        message.innerHTML = '<h4>LOVE YOU GUYS 💖</h4><p>Friendship is a beautiful melody that never ends.</p>';
+        document.body.appendChild(message);
+        setTimeout(() => message.remove(), 2200);
+    }
+</script>
+{% endblock %}
